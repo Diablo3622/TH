@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng ngày 20/10 đặc biệt</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* Áp dụng phông chữ Pacifico cho toàn bộ trang */
+        body {
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(180deg, #ff9a9e, #fad0c4, #ffd1ff, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.4);
+            max-width: 700px;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px #ff69b4;
+        }
+
+        p {
+            font-size: 1.4em;
+            text-shadow: 0 0 10px #ffd1ff;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+        }
+
+        #surprise {
+            margin-top: 20px;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        #surprise.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: sparkle 5s infinite ease-in-out;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            50% { transform: translateY(-20px) scale(1); opacity: 1; }
+            100% { transform: translateY(-50px) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc em 20/10 vui vẻ!</h1>
+        <p>Chúc em 20/10 thật vui, thật xinh, và lúc nào cũng cười thật tươi em nhé!</p>
+        <button onclick="showSurprise()">Nhấn vào đây để nhận lời chúc từ tận trái tim</button>
+        <div id="surprise">
+            <p>Em chính là món quà quý giá nhất mà anh từng có. Hãy luôn là chính mình và đừng bao giờ ngừng tỏa sáng nhé! 🌻</p> </div>
+        </div>
+        <div class="sparkles"></div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            const surprise = document.getElementById('surprise');
+            surprise.classList.toggle('show');
+        }
+
+        // Tạo các đốm sáng lung linh di chuyển
+        const sparklesContainer = document.querySelector('.sparkles');
+        for (let i = 0; i < 70; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 5 + 's';
+            sparkle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            sparklesContainer.appendChild(sparkle);
+        }
+    </script>
+</body>
+</html>
